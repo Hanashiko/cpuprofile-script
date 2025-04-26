@@ -1,0 +1,10 @@
+#!/bin/bash
+
+PROFILE="$1"
+
+if [[ "$PROFILE" != "performance" && "$PROFILE" != "powersave" ]]; then
+  echo "Використання: cpuprofile [performance|powersave]"
+  exit 1
+fi
+
+pkexec /usr/bin/cpupower frequency-set -g "$PROFILE"
